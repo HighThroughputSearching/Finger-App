@@ -1,0 +1,20 @@
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/bin/WebFinger1.dll.mdb
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/bin/WebFinger1.dll
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/obj/Release/WebFinger1.dll
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/obj/Release/WebFinger1.dll.mdb
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/bin/SourceAFIS.Mono.dll
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/bin/Newtonsoft.Json.dll
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/obj/Release/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/bin/SourceAFIS.dll
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/bin/MySql.Data.dll
+/Users/prisadumrongsiri/Projects/WebFinger1/WebFinger1/bin/log4net.dll
+/Users/prisadumrongsiri/Projects/WebFinger1 copy/WebFinger1/obj/Release/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/prisadumrongsiri/Projects/WebFinger1 copy/WebFinger1/bin/WebFinger1.dll.mdb
+/Users/prisadumrongsiri/Projects/WebFinger1 copy/WebFinger1/bin/WebFinger1.dll
+/Users/prisadumrongsiri/Projects/WebFinger1 copy/WebFinger1/obj/Release/WebFinger1.dll
+/Users/prisadumrongsiri/Projects/WebFinger1 copy/WebFinger1/obj/Release/WebFinger1.dll.mdb
+/Users/prisadumrongsiri/Projects/WebFinger1 copy/WebFinger1/bin/Newtonsoft.Json.dll
+/Users/prisadumrongsiri/Projects/WebFinger1 copy/WebFinger1/bin/SourceAFIS.Mono.dll
+/Users/prisadumrongsiri/Projects/WebFinger1 copy/WebFinger1/bin/MySql.Data.dll
+/Users/prisadumrongsiri/Projects/WebFinger1 copy/WebFinger1/bin/log4net.dll
