@@ -1,0 +1,66 @@
+﻿DEBUG 2015-03-19 09:46:24,540  1131ms RollingLogFileAppender dentifyPersonMatch - Persons : 7697
+DEBUG 2015-03-19 09:46:24,576  1167ms RollingLogFileAppender dentifyPersonMatch - =========================Identify PROBE ======================
+DEBUG 2015-03-19 09:46:24,578  1169ms RollingLogFileAppender tProbeFingerPrints - /var/www/html/fingerprint3/assets/images/temporary/admin@admin.com/
+DEBUG 2015-03-19 09:46:24,579  1170ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:46:24,580  1172ms RollingLogFileAppender getExtension       - Finger PATH : /var/www/html/fingerprint3/assets/images/temporary/admin@admin.com//left_fore_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,244  1135ms RollingLogFileAppender dentifyPersonMatch - Persons : 7697
+DEBUG 2015-03-19 09:53:08,255  1145ms RollingLogFileAppender dentifyPersonMatch - =========================Identify PROBE ======================
+DEBUG 2015-03-19 09:53:08,256  1147ms RollingLogFileAppender tProbeFingerPrints - /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com/
+DEBUG 2015-03-19 09:53:08,257  1148ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,258  1149ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//left_fore_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,259  1149ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,260  1150ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,261  1151ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//left_little_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,261  1152ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,262  1153ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,263  1153ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//left_middle_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,264  1154ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,265  1155ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,265  1156ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//left_ring_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,266  1157ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,267  1158ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,268  1158ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//left_thumb_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,269  1160ms RollingLogFileAppender getExtension       - File Extension : .bmp
+DEBUG 2015-03-19 09:53:08,270  1160ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,271  1161ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//left_thumb_hand_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,272  1162ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,272  1163ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,273  1164ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//lefthand_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,274  1164ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,275  1165ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,276  1166ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//right_fore_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,276  1167ms RollingLogFileAppender getExtension       - File Extension : .bmp
+DEBUG 2015-03-19 09:53:08,277  1168ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,278  1168ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//right_little_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,279  1169ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,280  1170ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,280  1171ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//right_middle_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,283  1173ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,284  1174ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,285  1175ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//right_ring_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,285  1176ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,286  1177ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,287  1177ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//right_thumb_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,288  1178ms RollingLogFileAppender getExtension       - File Extension : .bmp
+DEBUG 2015-03-19 09:53:08,289  1179ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,289  1180ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//right_thumb_hand_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,290  1181ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,291  1181ms RollingLogFileAppender getExtension       - getEx
+DEBUG 2015-03-19 09:53:08,292  1182ms RollingLogFileAppender getExtension       - Finger PATH : /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com//righthand_admin@admin.com.*
+DEBUG 2015-03-19 09:53:08,293  1183ms RollingLogFileAppender getExtension       - File Extension : 
+DEBUG 2015-03-19 09:53:08,293  1184ms RollingLogFileAppender tProbeFingerPrints - /Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/temporary/admin@admin.com/right_thumb_admin@admin.com.bmp
+DEBUG 2015-03-19 09:53:08,295  1185ms RollingLogFileAppender addFileToList      - Exist: True
+DEBUG 2015-03-19 09:53:08,296  1187ms RollingLogFileAppender Enroll             - Enrolling : Visitor #1234 id : 0
+DEBUG 2015-03-19 09:53:08,297  1188ms RollingLogFileAppender Enroll             - file size : 3
+DEBUG 2015-03-19 09:53:08,298  1188ms RollingLogFileAppender Enroll             - fileName : left_thumb_admin@admin.com.bmp
+DEBUG 2015-03-19 09:53:08,299  1189ms RollingLogFileAppender Enroll             - finger position : LeftThumb
+DEBUG 2015-03-19 09:53:08,429  1320ms RollingLogFileAppender Enroll             - fileName : right_fore_admin@admin.com.bmp
+DEBUG 2015-03-19 09:53:08,430  1321ms RollingLogFileAppender Enroll             - finger position : RightIndex
+DEBUG 2015-03-19 09:53:08,439  1329ms RollingLogFileAppender Enroll             - fileName : right_thumb_admin@admin.com.bmp
+DEBUG 2015-03-19 09:53:08,439  1330ms RollingLogFileAppender Enroll             - finger position : RightThumb
+DEBUG 2015-03-19 09:53:08,448  1338ms RollingLogFileAppender Enroll             - Extraction template.. : Visitor #1234
+DEBUG 2015-03-19 09:53:14,930  7820ms RollingLogFileAppender Enroll             - Template size System.Collections.Generic.List`1[SourceAFIS.Simple.Fingerprint]
+DEBUG 2015-03-19 09:53:14,931  7821ms RollingLogFileAppender dentifyPersonMatch - Identifying Visitor #1234 in database of 7697 persons...
+DEBUG 2015-03-19 09:53:17,666 10557ms RollingLogFileAppender dentifyPersonMatch - =========================== ===== ======================
+DEBUG 2015-03-19 09:53:17,749 10639ms RollingLogFileAppender dentifyPersonMatch - Person : 501 Score : 246.7478
+DEBUG 2015-03-19 09:53:17,752 10642ms RollingLogFileAppender Load_PersonScore   - Elapsed Time :00:00:10.5588608

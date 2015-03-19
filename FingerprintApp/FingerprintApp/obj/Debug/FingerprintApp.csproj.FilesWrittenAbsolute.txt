@@ -1,0 +1,10 @@
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/bin/FingerprintApp.dll.mdb
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/bin/FingerprintApp.dll
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/obj/Debug/FingerprintApp.dll
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/obj/Debug/FingerprintApp.dll.mdb
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/bin/log4net.dll
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/bin/MySql.Data.dll
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/bin/Newtonsoft.Json.dll
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/bin/SourceAFIS.Mono.dll
+/Users/prisadumrongsiri/Projects/FingerprintApp/FingerprintApp/bin/MySql.Web.dll
