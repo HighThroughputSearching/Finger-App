@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
-using log4net;
 
 
-namespace FingerprintApp
+
+namespace FingerprintAppForAdd
 {
 	[System.Xml.Serialization.XmlRoot("ImagePathManagement")]
 	public class ImagePathManagement
@@ -52,7 +52,6 @@ namespace FingerprintApp
 		string email;
 		string organisation;
 
-	
 		List<string> fileNameList = new List<string>();
 		List<string> filePathList = new List<string>();
 		/** Right Path & Right List **/
@@ -81,8 +80,6 @@ namespace FingerprintApp
 
 
 		List<MyPerson> database = new List<MyPerson>();
-		private static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");   
-
 		public void setProbeFingerPrints(string emailUser)
 		{
 			setEmail (emailUser);
@@ -93,7 +90,7 @@ namespace FingerprintApp
 			//this.ImagePathProbe = Path.Combine("/var/www/html/fingerprintWebsite/assets/images/temporary/",emailUser+"/");   
 
 			//Check finferprints files
-			logger.Debug(ImagePathProbe);
+			Console.WriteLine(ImagePathProbe);
 
 			// Left fileName
 			this.filename_left_thumb =  emailUser +"_L0"+ getExtension (ImagePathProbe, "L0");
@@ -110,13 +107,11 @@ namespace FingerprintApp
 			this.path_left_little = Path.Combine(ImagePathProbe, filename_left_little);
 
 			// right fileName
-			this.filename_right_thumb = emailUser  +"_R0"+ getExtension (ImagePathProbe, "R0");
-			this.filename_right_fore =  emailUser + "_R1" + getExtension (ImagePathProbe, "R1");
-			this.filename_right_middle =   emailUser + "_R2" + getExtension (ImagePathProbe, "R2");
-			this.filename_right_ring =  emailUser + "_R3" + getExtension (ImagePathProbe, "R3");
-			this.filename_right_little =  emailUser + "_R4" + getExtension (ImagePathProbe, "R4");
-
-	
+			this.filename_right_fore =  emailUser + "_R1" + getExtension (ImagePathProbe, "right_fore");
+			this.filename_right_little =  emailUser + "_R4" + getExtension (ImagePathProbe, "right_little");
+			this.filename_right_middle =   emailUser + "_R2" + getExtension (ImagePathProbe, "right_middle");
+			this.filename_right_ring =  emailUser + "_R3" + getExtension (ImagePathProbe, "right_ring");
+			this.filename_right_thumb = emailUser  +"_R0"+ getExtension (ImagePathProbe, "right_thumb");
 
 			// right Path
 			this.path_right_fore = Path.Combine(ImagePathProbe, filename_right_fore);
@@ -125,11 +120,10 @@ namespace FingerprintApp
 			this.path_right_ring = Path.Combine(ImagePathProbe, filename_right_ring);
 			this.path_right_thumb = Path.Combine(ImagePathProbe, filename_right_thumb);
 
-			logger.Debug(path_right_thumb);
 
 		}
 
-		public void setNewPersonFingerPrints(string id)
+		public void setNewPersonFingerPrints(string id,string organisation)
 		{
 			/** Server **/
 			//	this.ImagePathProbe = Path.Combine("/var/www/html/fingerprintWebsite/assets/images/form/");
@@ -138,7 +132,8 @@ namespace FingerprintApp
 			this.ImagePathProbe = Path.Combine("/Applications/XAMPP/xamppfiles/htdocs/fingerprintWebsite/assets/images/form/");
 
 			setId (id);
-			logger.Debug("===== setNewPersonFingerPrints ======");
+			setOrganisation (organisation);
+			Console.WriteLine ("===== setNewPersonFingerPrints ======");
 
 			/** Check finferprints fingerprint postion id folders */
 			//Left position id folder
@@ -171,7 +166,6 @@ namespace FingerprintApp
 			this.path_right_middle = Path.Combine(ImagePathProbe + "right_middle/", folder_right_middle_id);
 			this.path_right_ring = Path.Combine(ImagePathProbe + "right_ring/", folder_right_ring_id);
 			this.path_right_thumb = Path.Combine(ImagePathProbe + "right_thumb/", folder_right_thumb_id);
-			logger.Debug("new PErson: "+path_right_thumb);
 
 		}
 
@@ -209,7 +203,7 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_right_thumb_List.Add (fileArray [i]); 
 					fileName_right_thumb_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (right_thumb): " + filePathSpit [11]);
+					Console.WriteLine ("File name (right_thumb): {0}"+filePathSpit [11]);
 				}
 			}
 
@@ -221,7 +215,7 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_right_fore_List.Add (fileArray [i]); 
 					fileName_right_fore_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (right_fore): " + filePathSpit [11]);
+					Console.WriteLine ("File name (right_fore): {0}" + filePathSpit [11]);
 				}
 			}
 
@@ -233,7 +227,7 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_right_middle_List.Add (fileArray [i]); 
 					fileName_right_middle_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (right_middle): " + filePathSpit [11]);
+					Console.WriteLine ("File name (right_middle): {0}"+filePathSpit [11]);
 				}
 			}
 
@@ -245,7 +239,7 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_right_ring_List.Add (fileArray [i]); 
 					fileName_right_ring_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (right_ring): " + filePathSpit [11]);
+					Console.WriteLine ("File name (right_ring): {0}"+filePathSpit [11]);
 				}
 			}
 
@@ -257,7 +251,7 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_right_little_List.Add (fileArray [i]); 
 					fileName_right_little_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (right_little): " + filePathSpit [11]);
+					Console.WriteLine ("File name (right_little): {0}"+filePathSpit [11]);
 				}
 			}
 
@@ -269,7 +263,7 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_left_thumb_List.Add (fileArray [i]); 
 					fileName_left_thumb_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (left_thumb): " + filePathSpit [11]);
+					Console.WriteLine ("File name (left_thumb): {0}"+filePathSpit [11]);
 				}
 			}
 
@@ -281,7 +275,7 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_left_fore_List.Add (fileArray [i]); 
 					fileName_left_fore_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (left_fore): " + filePathSpit [11]);
+					Console.WriteLine ("File name (left_fore): {0}"+filePathSpit [11]);
 				}
 			}
 
@@ -293,7 +287,7 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_left_middle_List.Add (fileArray [i]); 
 					fileName_left_middle_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (left_middle): " + filePathSpit [11]);
+					Console.WriteLine ("File name (left_middle): {0}"+filePathSpit [11]);
 				}
 			}
 
@@ -305,7 +299,7 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_left_ring_List.Add (fileArray [i]); 
 					fileName_left_ring_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (left_ring): " + filePathSpit [11]);
+					Console.WriteLine ("File name (left_ring): {0}"+filePathSpit [11]);
 				}
 			}
 
@@ -317,11 +311,10 @@ namespace FingerprintApp
 					string[] filePathSpit = fileArray [i].Split ('/');
 					filePath_left_little_List.Add (fileArray [i]); 
 					fileName_left_little_List.Add (filePathSpit [11]);
-					logger.Debug ("File name (left_little): " + filePathSpit [11]);
+					Console.WriteLine ("File name (left_little): {0}"+filePathSpit [11]);
 				}
 			}
 				
-
 		}
 
 		public void addFileToListProbe() {
@@ -337,9 +330,9 @@ namespace FingerprintApp
 			if (File.Exists(path_right_fore)) { filePathList.Add(path_right_fore); fileNameList.Add(filename_right_fore); }
 			if (File.Exists(path_right_middle)) { filePathList.Add(path_right_middle); fileNameList.Add(filename_right_middle); }
 			if (File.Exists(path_right_ring)) { filePathList.Add(path_right_ring); fileNameList.Add(filename_right_ring); }
-		
+
 			if (File.Exists(path_right_little)) { filePathList.Add(path_right_little); fileNameList.Add(filename_right_little); }
-			logger.Debug("Exist: " + File.Exists(path_right_thumb));
+			//logger.Debug("Exist: " + File.Exists(path_right_thumb));
 		}
 
 		public List<string> getFilePathList(){
@@ -431,39 +424,41 @@ namespace FingerprintApp
 			return fileName_right_little_List;
 		}
 
+
 		public string getExtension(string ImagePath,string FingerPostion){
-			logger.Debug ("getEx");
+			Console.WriteLine ("...............getExtension...............");
 			string extension = "";
 			string temporary_finger_path = Path.Combine (ImagePath);
-		
 			string email_user = getEmail();
-			logger.Debug ("Finger PATH : " +  temporary_finger_path+"/" +email_user+"_"+FingerPostion+".*");
+//			logger.Debug ("Finger PATH : " +  temporary_finger_path+"/" +email_user+"_"+FingerPostion+".*");
 			string[] fileArray = Directory.GetFiles (temporary_finger_path ,email_user+"_"+FingerPostion+".*");
-				if(fileArray.Length > 0){
-					FileInfo fi = new FileInfo(fileArray [0]);
-					extension = fi.Extension;
-				}
+			if(fileArray.Length > 0){
+				FileInfo fi = new FileInfo(fileArray [0]);
+				extension = fi.Extension;
+			}
 
-			logger.Debug ("File Extension : " + extension);
+			Console.WriteLine (".................................................");
 			return extension;
 
 		}
 
 		public string getExtensionForm(string ImagePath,string FingerPostion){
-			logger.Debug ("...............getExtensionForm...............");
+			
+			Console.WriteLine ("...............getExtensionForm...............");
 			string extension = "";
 			string temporary_finger_path = Path.Combine (ImagePath,FingerPostion+"/");
 			string[] fileArray = Directory.GetFiles (  temporary_finger_path,getId ()+"_"+ getOrganisation()+ "_"+FingerPostion   +".*");
 			if (fileArray.Length > 0) {
-			
+
 				FileInfo fi = new FileInfo (fileArray [0]);
 				extension = fi.Extension;
 			}
-			logger.Debug ("File Extension : " + extension);
-			logger.Debug (".................................................");
+		
+			Console.WriteLine (".................................................");
 			return extension;
 
 		}
+	
 	}
 }
 

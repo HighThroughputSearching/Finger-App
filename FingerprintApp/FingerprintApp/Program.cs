@@ -36,22 +36,78 @@ public class Program
 			DBConnection db = new DBConnection ();
 			candidate = db.getdb ();
 
-			for (int i = 0; i < 2; i++) {
+			for (int i = 0; i < candidate.Count(); i++) {
 				List<string> Aperson = candidate[i];
 				string id = Aperson[0];
-				string criminal_name = Aperson[1];
-				string criminal_surname = Aperson[2];
+				string email = Aperson[1];
+				string organisation = Aperson[2];
 				ImagePathManagement ipm = new ImagePathManagement();
 				ipm.setNewPersonFingerPrints(id+"");
 				ipm.addFileToList();
 
-				List<string> list1 = ipm.getFileNameList ();
-				List<string> list2 = ipm.getFilePathList ();
+				//List<string> list1 = ipm.getFileNameList ();
+				//List<string> list2 = ipm.getFilePathList ();
 				//logger.Debug ("Check File: " + list1.Count());
 				//logger.Debug ("Check File: " + list2.Count());
-				MyPerson person = Enroll (ipm.getFilePathList (),ipm.getFileNameList (),id,criminal_name+" "+criminal_surname);
+				List <List<string> > allPath = new  List <List<string> >();
+				List <List<string> > allFileName = new  List <List<string> >();
+				if (ipm.getFilePath_right_thumb_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_right_thumb_List ());
+					allFileName.Add (ipm.getFileName_right_thumb_List ());
+
+				}
+				if (ipm.getFileName_right_fore_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_right_fore_List ());
+					allFileName.Add (ipm.getFileName_right_fore_List ());
+
+				}
+
+				if (ipm.getFileName_right_middle_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_right_middle_List ());
+					allFileName.Add (ipm.getFileName_right_middle_List ());
+
+				}
+
+				if (ipm.getFileName_right_ring_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_right_ring_List ());
+					allFileName.Add (ipm.getFileName_right_ring_List ());
+
+				}
+
+				if (ipm.getFileName_right_little_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_right_little_List ());
+					allFileName.Add (ipm.getFileName_right_little_List ());
+
+				}
+
+				if (ipm.getFilePath_left_thumb_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_left_thumb_List ());
+					allFileName.Add (ipm.getFileName_left_thumb_List ());
+				}
+
+				if (ipm.getFilePath_left_fore_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_left_fore_List ());
+					allFileName.Add (ipm.getFileName_left_fore_List ());
+				}
+
+				if (ipm.getFilePath_left_middle_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_left_middle_List ());
+					allFileName.Add (ipm.getFileName_left_middle_List ());
+				}
+
+				if (ipm.getFilePath_left_ring_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_left_ring_List ());
+					allFileName.Add (ipm.getFileName_left_ring_List ());
+				}
+
+				if (ipm.getFilePath_left_little_List ().Count () > 0) {
+					allPath.Add (ipm.getFilePath_left_little_List ());
+					allFileName.Add (ipm.getFileName_left_little_List ());
+				}
+				//MyPerson person = Enroll (ipm.getFilePathList (),ipm.getFileNameList (),id,criminal_name+" "+criminal_surname);
+				MyPerson person = Enroll(allPath,allFileName,id,id,organisation);
 				if(person != null)  myPersons.Mypersons.Add(person);
-				myPersons.Mypersons.Add(person);
+				//myPersons.Mypersons.Add(person);
 
 			}
 			SetXMLFromObject(myPersons);
@@ -90,16 +146,17 @@ public class Program
 		// Enroll visitor with unknown identity
 		ImagePathManagement ipm_probe = new ImagePathManagement();
 		ipm_probe.setProbeFingerPrints(emailUser);
-		ipm_probe.addFileToList();
+		ipm_probe.addFileToListProbe();
 
 
-			MyPerson probe = Enroll(  ipm_probe.getFilePathList(),ipm_probe.getFileNameList(), "0","Visitor #1234");
+			MyPerson probe = EnrollOld(  ipm_probe.getFilePathList(),ipm_probe.getFileNameList(), "0","Visitor #1234");
 
 			if (probe != null) {
 				//stopwatch.Stop();
 
 				// Look up the probe using Threshold = 10
-				Afis.Threshold = 50;
+//				Afis.MinMatches = ipm_probe.getFilePathList().Count();
+				Afis.Threshold = 40;
 
 //			Console.WriteLine("Identifying {0} in database of {1} persons...", probe.name, myPersons.Mypersons.Count);
 				logger.Debug ("Identifying " + probe.name + " in database of " + myPersons.Mypersons.Count + " persons...");
@@ -112,7 +169,8 @@ public class Program
 //			Console.WriteLine( personsMatch.Mypersons.Count());
 				//   Console.WriteLine(personsMatch.Mypersons.Count());
 				for (int i = 0; i < personsMatch.Mypersons.Count (); i++) {
-					float scoreM = Afis.Verify (probe, personsMatch.Mypersons [i]);
+					float scoreM = Afis.Verify ( personsMatch.Mypersons [i],probe);
+
 					//Console.WriteLine("Persons: {0} ,Score : {1}", personsMatch.Mypersons[i].name, scoreM);
 					logger.Debug ("Person : "+personsMatch.Mypersons[i].name+ " Score : "+scoreM);
 					// Set A personMatch infp
@@ -121,7 +179,15 @@ public class Program
 					aPerson.Id = personsMatch.Mypersons [i].Id;
 					aPerson.name = personsMatch.Mypersons [i].name;
 					aPerson.score = scoreM;
-			
+					aPerson.organisation = personsMatch.Mypersons [i].organisation;
+
+//					aPerson.fingerPosition = personsMatch.Mypersons [i].fingerPosition;
+//					for (int m = 0; m < personsMatch.Mypersons [i].Fingerprints.Count (); m++) {
+//						logger.Debug ("Fingerprints : " + personsMatch.Mypersons [i].Fingerprints [m].Finger);
+//						for(int n =0; n<personsMatch.Mypersons [i].Fingerprints[m].Template.Count(); n++){
+//							logger.Debug ("Fingerprints : " + personsMatch.Mypersons [i].Fingerprints [m].Template[n]);
+//						}
+//					}
 					personsMatchXML2.Add (aPerson);
 				}
 			}
@@ -145,7 +211,7 @@ public class Program
 		XmlAttributes attribs = new XmlAttributes ();
 		attribs.XmlIgnore = true;
 		attribs.XmlElements.Add (new XmlElementAttribute ("AsImageData"));
-		overrides.Add (typeof(Fingerprint), "AsImageData", attribs);
+		overrides.Add (typeof(MyFingerprint), "AsImageData", attribs);
 
 		System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer (typeof(MyPersons), overrides);
 		System.Xml.XmlWriterSettings settings = new System.Xml.XmlWriterSettings ();
@@ -186,8 +252,89 @@ public class Program
 		return result;
 	}
 
+		// Take fingerprint image file and create Person object from the image
+		public MyPerson Enroll (List<List<string>> allPath,List<List<string>> allFileName,string id, string name,string organisation)
+		{
+			//Console.WriteLine("Enrolling {0}...", name);
+			logger.Debug ("Enrolling : "+name+" id : "+id);
+			MyPerson person = new MyPerson ();
+			person.name = name;
+			person.Id = Convert.ToInt32(id);
+			person.organisation = organisation;
+			logger.Debug ("No. of Folder: " + allPath.Count ());
+		
+			// Initialize empty fingerprint object and set properties
+			for (int i = 0; i < allPath.Count (); i++) {
+		//		logger.Debug ("folderName : " + allFileName[i][j]);
+				//List<Fingerprint> FingerprintList = new List<Fingerprint>(Fingerprint)
+				for (int j = 0; j < allPath [i].Count (); j++) {
+					MyFingerprint fp = new MyFingerprint ();
+					logger.Debug ("folderName : " + allFileName[i][j]);
+					string[] fileSpilt = allFileName[i][j].Split('_');
+					if (fileSpilt[2].Contains("L"))
+					{
+						if (fileSpilt[2].Equals("L0")) fp.Finger = Finger.LeftThumb;
+						else if (fileSpilt[2].Equals("L1")) fp.Finger = Finger.LeftIndex;
+						else if (fileSpilt[2].Equals("L2")) fp.Finger = Finger.LeftMiddle;
+						else if (fileSpilt[2].Equals("L3")) fp.Finger = Finger.LeftRing;
+						else if (fileSpilt[2].Equals("L4")) fp.Finger = Finger.LeftLittle;
+					}
+					else if (fileSpilt[2].Contains("R"))
+					{
+						if (fileSpilt[2].Equals("R0")) fp.Finger = Finger.RightThumb;
+						else if (fileSpilt[2].Equals("R1")) fp.Finger = Finger.RightIndex;
+						else if (fileSpilt[2].Equals("R2")) fp.Finger = Finger.RightMiddle;
+						else if (fileSpilt[2].Equals("R3")) fp.Finger = Finger.RightRing;
+						else if (fileSpilt[2].Equals("R4")) fp.Finger = Finger.RightLittle;
+					}
+					logger.Debug ("finger position : " + fp.Finger );
+
+					String filePath = allPath [i][j];
+					using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+					{
+						try
+						{
+							using (Image fromFile = Image.FromStream(fs))
+							{
+								using (Bitmap bmp = new Bitmap(fromFile))
+								{
+									fp.filename = allFileName[i][j];
+									fp.Image = GetPixels(bmp);
+									logger.Debug ("========== Get Bitmap Image ==========");
+									fromFile.Dispose();
+								}
+							}
+						}
+						catch (Exception e) {
+							logger.Debug (e);
+							return null; 
+						}
+					}
+
+					person.Fingerprints.Add (fp);
+
+				}
+
+
+				//person.Fingerprints.Add (myFingerprints);
+			
+			}
+
+			// Execute extraction in order to initialize fp.Template
+			logger.Debug ("Extraction template.. : "+person.name);
+
+			//Console.WriteLine(" Extracting template... {0} : {1}",person.name,fp.AsBitmap);
+
+			Afis.Extract (person);
+			logger.Debug ("Template size " + person.Fingerprints);
+			// Check template size
+			//Console.WriteLine(" Template size = {0} bytes", fp.Template.Length);
+
+			return person;
+		}
+
 	// Take fingerprint image file and create Person object from the image
-		public MyPerson Enroll (List<string> pathList,List<string> fileNameList,string id, string name)
+		public MyPerson EnrollOld (List<string> pathList,List<string> fileNameList,string id, string name)
 	{
 
 		//Console.WriteLine("Enrolling {0}...", name);
@@ -200,29 +347,36 @@ public class Program
 			for (int i = 0; i < pathList.Count (); i++) {
 				Fingerprint fp = new Fingerprint ();
 
-				/* using (var bitmap = new Bitmap(filename))
-				{
-					fp.AsBitmap = bitmap;
-				}*/
+				// using (var bitmap = new Bitmap(filename))
+				//{
+				//	fp.AsBitmap = bitmap;
+				//} 
 				//fp.AsBitmap = new Bitmap(Bitmap.FromFile(filename));
+				
 				logger.Debug ("fileName : " + fileNameList[i]);
-				string[] fileSpilt = fileNameList[i].Split('_');
-				if (fileSpilt[0].Contains("left"))
+				string[] fileSpilt = fileNameList[i].Split('_'); 
+				/*if (fileSpilt[2].Contains("L"))
 				{
-					if (fileSpilt[1].Equals("thumb")) fp.Finger = Finger.LeftThumb;
-					else if (fileSpilt[1].Equals("fore")) fp.Finger = Finger.LeftIndex;
-					else if (fileSpilt[1].Equals("middle")) fp.Finger = Finger.LeftMiddle;
-					else if (fileSpilt[1].Equals("ring")) fp.Finger = Finger.LeftRing;
-					else if (fileSpilt[1].Equals("little")) fp.Finger = Finger.LeftLittle;
+					if (fileSpilt [2].Equals ("L0")) {
+						fp.Finger = Finger.LeftThumb;
+						person.fingerPosition = Finger.LeftThumb+"";
+					}
+					else if (fileSpilt[2].Equals("L1")) fp.Finger = Finger.LeftIndex;
+					else if (fileSpilt[2].Equals("L2")) fp.Finger = Finger.LeftMiddle;
+					else if (fileSpilt[2].Equals("L3")) fp.Finger = Finger.LeftRing;
+					else if (fileSpilt[2].Equals("L4")) fp.Finger = Finger.LeftLittle;
 				}
-				else if (fileSpilt[0].Contains("right"))
+				else if (fileSpilt[2].Contains("R"))
 				{
-					if (fileSpilt[1].Equals("thumb")) fp.Finger = Finger.RightThumb;
-					else if (fileSpilt[1].Equals("fore")) fp.Finger = Finger.RightIndex;
-					else if (fileSpilt[1].Equals("middle")) fp.Finger = Finger.RightMiddle;
-					else if (fileSpilt[1].Equals("ring")) fp.Finger = Finger.RightRing;
-					else if (fileSpilt[1].Equals("little")) fp.Finger = Finger.RightLittle;
-				}
+					if (fileSpilt [2].Equals ("R0")) {
+						fp.Finger = Finger.RightThumb;
+						person.fingerPosition = Finger.RightThumb+"";
+					}
+					else if (fileSpilt[2].Equals("R1")) fp.Finger = Finger.RightIndex;
+					else if (fileSpilt[2].Equals("R2")) fp.Finger = Finger.RightMiddle;
+					else if (fileSpilt[2].Equals("R3")) fp.Finger = Finger.RightRing;
+					else if (fileSpilt[2].Equals("R4")) fp.Finger = Finger.RightLittle;
+				}*/
 				logger.Debug ("finger position : " + fp.Finger );
 				String filePath = pathList [i];
 				using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
@@ -263,7 +417,7 @@ public class Program
 		//Console.WriteLine(" Template size = {0} bytes", fp.Template.Length);
 
 		return person;
-	}
+	} 
 
 		public MyPerson Enroll (string filePath, string id)
 		{
@@ -274,7 +428,7 @@ public class Program
 			person.name = id;
 			person.Id = Convert.ToInt32(id);
 
-				Fingerprint fp = new Fingerprint ();
+			Fingerprint fp = new Fingerprint ();
 			logger.Debug ("filePath : "+filePath);
 			using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
 			{
@@ -294,6 +448,7 @@ public class Program
 					return null; 
 				}
 			}
+
 				// Above update of fp.AsBitmapSource initialized also raw image in fp.Image
 				// Check raw i
 				// Image dimensions, Y axis is first, X axis is second
@@ -335,7 +490,7 @@ public class Program
 			// Cleanup
 			ReadFileStream.Close ();
 			//int index = list_name_form.Count();
-			MyPerson newCandidate = Enroll(fingersForm.getFilePathList(), fingersForm.getFileNameList(), id+"", id+"");
+			MyPerson newCandidate = EnrollOld(fingersForm.getFilePathList(), fingersForm.getFileNameList(), id+"", id+"");
 			if (newCandidate != null) {
 				myPersonList.Mypersons.Add (newCandidate);
 				SetXMLFromObject (myPersonList);

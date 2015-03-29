@@ -15,11 +15,10 @@ namespace FingerprintApp
 			string connectionString =
 				"Server=127.0.0.1;" +
 				"Port=3307;" +
-				"DATABASE=fingerprint;" +
+				"DATABASE=fingerprintWeb2;" +
 				"UID=root;";
-
-
-			string sql = "select id,criminal_name,criminal_surname from form";
+			
+			string sql = "select id,email,organisation from form";
 			MySqlConnection connection = new MySqlConnection(connectionString);
 			try
 			{
@@ -30,8 +29,8 @@ namespace FingerprintApp
 				{
 					List<String> person = new List<string>();
 					person.Add(Convert.ToString(rdr["id"]));
-					person.Add(Convert.ToString(rdr["criminal_name"]));
-					person.Add(Convert.ToString(rdr["criminal_surname"]));
+					person.Add(Convert.ToString(rdr["email"]));
+					person.Add(Convert.ToString(rdr["organisation"]));
 					candidate.Add(person);
 				}
 				//count = Convert.ToInt32(command.ExecuteScalar());

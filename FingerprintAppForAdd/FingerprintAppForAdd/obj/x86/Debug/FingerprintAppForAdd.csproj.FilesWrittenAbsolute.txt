@@ -4,3 +4,5 @@
 /Users/prisadumrongsiri/Projects/FingerprintAppForAdd/FingerprintAppForAdd/bin/Debug/FingerprintAppForAdd.exe
 /Users/prisadumrongsiri/Projects/FingerprintAppForAdd/FingerprintAppForAdd/obj/x86/Debug/FingerprintAppForAdd.exe
 /Users/prisadumrongsiri/Projects/FingerprintAppForAdd/FingerprintAppForAdd/obj/x86/Debug/FingerprintAppForAdd.exe.mdb
+/Users/prisadumrongsiri/Projects/FingerprintAppForAdd/FingerprintAppForAdd/bin/Debug/MySql.Data.dll
+/Users/prisadumrongsiri/Projects/FingerprintAppForAdd/FingerprintAppForAdd/bin/Debug/MySql.Web.dll

@@ -1,1 +1,19 @@
-﻿<Properties StartupItem="FingerprintAppForAdd/FingerprintAppForAdd.csproj" />
+﻿<Properties StartupItem="FingerprintAppForAdd/FingerprintAppForAdd.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FingerprintAppForAdd/Program.cs">
+    <Files>
+      <File FileName="FingerprintAppForAdd/Program.cs" Line="99" Column="5" />
+      <File FileName="FingerprintAppForAdd/MyPerson.cs" Line="1" Column="1" />
+      <File FileName="FingerprintAppForAdd/MyPersons.cs" Line="1" Column="1" />
+      <File FileName="FingerprintAppForAdd/MyFingerprints.cs" Line="1" Column="1" />
+      <File FileName="FingerprintAppForAdd/MyfingerprintsAll.cs" Line="1" Column="1" />
+      <File FileName="FingerprintAppForAdd/ImagePathManagement.cs" Line="1" Column="1" />
+      <File FileName="FingerprintAppForAdd/MyFingerprint.cs" Line="1" Column="1" />
+      <File FileName="FingerprintAppForAdd/DBConnection.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

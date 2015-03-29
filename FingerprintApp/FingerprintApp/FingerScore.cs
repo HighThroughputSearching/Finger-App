@@ -24,10 +24,11 @@ namespace FingerprintApp
 			string[] spilt = FingerDBArray.Split('/');
 
 			string folder = spilt[3];
-			string fileName = spilt[4];
+			string fingerPosition_id = spilt [4];
+			string fileName = spilt[5];
 			logger.Debug("Folder : " + folder);
 			logger.Debug("FileName : " + fileName);
-			string privateFolder = Path.Combine(folder, fileName);
+			string privateFolder = Path.Combine(folder+"/"+fingerPosition_id, fileName);
 			this.pathPersonFinger = Path.Combine(ImagePathPersonFinger, privateFolder);
 			logger.Debug("Path: " + pathPersonFinger);
 			MyPerson person = enroll(pathPersonFinger);
@@ -43,7 +44,7 @@ namespace FingerprintApp
 			MyPerson personProbe = enroll(pathProbe);
 			logger.Debug("=============================================================================");
 
-			logger.Debug("=======================================Score =================================");
+			logger.Debug("=======================================Score ================================");
 			score = Afis.Verify(person, personProbe);
 			logger.Debug("=============================================================================");
 			logger.Debug("score : " + score);

@@ -25,7 +25,7 @@ namespace FingerprintApp
             Stopwatch stopwatch = new Stopwatch ();
 			stopwatch.Start ();
        		Program p = new Program();
-       		//p.loadCandidateDB();
+       	//	p.loadCandidateDB();
        		p.identifyPersonMatch("admin@admin.com");
 			
 			stopwatch.Stop ();
