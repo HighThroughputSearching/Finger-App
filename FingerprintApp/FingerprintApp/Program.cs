@@ -180,13 +180,12 @@ public class Program
 					aPerson.name = personsMatch.Mypersons [i].name;
 					aPerson.score = scoreM;
 					aPerson.organisation = personsMatch.Mypersons [i].organisation;
-
-//					aPerson.fingerPosition = personsMatch.Mypersons [i].fingerPosition;
+//					aPerson.Fingerprints = personsMatch.Mypersons [i].Fingerprints;
+					//aPerson.fp = personsMatch.Mypersons [i].fp;
+//					List<MyFingerprint> fp = personsMatch.Mypersons [i].Fingerprints.OfType<MyFingerprint>;
 //					for (int m = 0; m < personsMatch.Mypersons [i].Fingerprints.Count (); m++) {
-//						logger.Debug ("Fingerprints : " + personsMatch.Mypersons [i].Fingerprints [m].Finger);
-//						for(int n =0; n<personsMatch.Mypersons [i].Fingerprints[m].Template.Count(); n++){
-//							logger.Debug ("Fingerprints : " + personsMatch.Mypersons [i].Fingerprints [m].Template[n]);
-//						}
+						
+//						aPerson.fp.Add(fp[i].filename);
 //					}
 					personsMatchXML2.Add (aPerson);
 				}

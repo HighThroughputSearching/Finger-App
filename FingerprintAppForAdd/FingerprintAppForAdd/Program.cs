@@ -293,7 +293,7 @@ namespace FingerprintAppForAdd
 			MyPerson person = new MyPerson ();
 			person.name = name;
 			person.Id = Convert.ToInt32(id);
-			person.organisation = organisation;
+			person.organisation = "0"+	organisation;
 			Console.WriteLine  ("No. of Folder: {0}" ,allPath.Count ());
 
 			// Initialize empty fingerprint object and set properties

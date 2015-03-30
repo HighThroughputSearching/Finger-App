@@ -11,8 +11,8 @@ namespace FingerprintApp{
 		public string name{ get; set; }
 		public float score{ get; set; }
 		public string organisation { get; set;}
-		public string fileName { get; set;}
-		public MyFingerprint fp{ get; set;}
+		public List<MyFingerprint> fingerprintPosition  = new List<MyFingerprint>();
+		public List<string> fp  = new List<string>();
 
 	 
 	}

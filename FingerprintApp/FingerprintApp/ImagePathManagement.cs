@@ -35,6 +35,8 @@ namespace FingerprintApp
 		string path_right_ring;
 		string path_right_thumb;
 
+	
+
 		/* FingerPosition_ID folder */
 		string folder_right_thumb_id;
 		string folder_right_fore_id;
@@ -47,6 +49,8 @@ namespace FingerprintApp
 		string folder_left_middle_id;
 		string folder_left_ring_id;
 		string folder_left_little_id;
+
+
 		string[] extensions = { "tif", "bmp", "jpg" };
 		string id;
 		string email;
@@ -171,7 +175,11 @@ namespace FingerprintApp
 			this.path_right_middle = Path.Combine(ImagePathProbe + "right_middle/", folder_right_middle_id);
 			this.path_right_ring = Path.Combine(ImagePathProbe + "right_ring/", folder_right_ring_id);
 			this.path_right_thumb = Path.Combine(ImagePathProbe + "right_thumb/", folder_right_thumb_id);
+
+		
+
 			logger.Debug("new PErson: "+path_right_thumb);
+
 
 		}
 
@@ -320,6 +328,8 @@ namespace FingerprintApp
 					logger.Debug ("File name (left_little): " + filePathSpit [11]);
 				}
 			}
+
+
 				
 
 		}
